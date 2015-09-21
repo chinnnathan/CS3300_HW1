@@ -12,6 +12,7 @@ describe 'palindrome detection', :pending => true do
   it 'should ignore nonword characters' do
     expect('A man, a plan, a canal -- Panama').to be_a_palindrome
     expect("Madam, I'm Adam!").to be_a_palindrome
+    expect("___@").to be_a_palindrome
   end    
 end
 

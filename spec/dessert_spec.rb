@@ -38,5 +38,14 @@ describe JellyBean, :pending => true do
   describe 'when licorice' do
     subject { JellyBean.new('licorice') }
     it { should_not be_delicious }
+    its(:flavor)     { should match /licorice/i }
   end
+    before(:each) { @jb = JellyBean.new('licorice')}
+    it 'flavor' do
+      expect(@jb.flavor).to eq('licorice')
+      expect(@jb.delicious?).to eq(false)
+      @jb.flavor = 'strawberry'
+      expect(@jb.flavor).to eq('strawberry')
+      expect(@jb.delicious?).to eq(true)
+    end
 end

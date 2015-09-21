@@ -31,6 +31,15 @@ describe '#attr_accessor_with_history', :pending => true do
       @subject.foo = 'x'
       expect(@subject.foo_history).to eq([nil, 3])
     end
+    it 'should change values' do
+      @subject.foo
+      @subject.foo = 3
+      @subject.foo = 'x'
+      expect(@subject.foo_history).to eq([nil, 3])
+      @subject.foo = 'y'
+      @subject.foo = 'q'
+      expect(@subject.foo_history).to eq([nil, 3, 'x', 'y'])
+    end
   end
   describe 'when a symbol is passed' do
     before(:each) { @subject = TestClass1.new }

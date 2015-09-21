@@ -26,6 +26,10 @@ describe RockPaperScissors, :pending => true do
     it 'base case' do
       expect(RockPaperScissors.tournament_winner([@rock,@paper])).to eq(@paper)
     end
+    it 'simple case' do
+      tourney = [['Charlie', 'R'], ['Henry', 's']]
+      expect(RockPaperScissors.tournament_winner(tourney)).to eq(['Charlie', 'R'])
+    end
     it 'recursive case' do
       tourney = [
         [
